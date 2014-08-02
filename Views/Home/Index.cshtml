@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/angular-resource.js")
+    @Scripts.Render("~/Scripts/jquery-2.1.1.js")
+    @Scripts.Render("~/Scripts/angular-route.js")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
+    
+@Scripts.Render("~/Scripts/Angular/Application.js")
+@Scripts.Render("~/Scripts/Angular/Controllers/foodCtr.js")
+
+}
+<div ng-controller="foodCtr" ng-cloak>
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">@("Name: ")</div>
+                <input class="form-control" type="text" placeholder="Search text..." ng-model="searchName" ng-disabled="!dishes">
+            </div>
+        </div>
+    </form>
+    <div style="margin-top: 20px;" ng-show="dishes">
+        <i ng-show="!dishes">No mach for '{{searchName}}'</i>
+        <div class="panel panel-default" ng-show="dishes">
+            <div class="list-group">
+                <div class="list-group-item panel-default">
+                    Search name
+                </div>
+                <a ng-click="show()" ng-repeat="dish in dishes | filter : searchName" href="#{{dish.DishId}}" class="list-group-item">{{dish.Name}}</a>
+            </div>
+        </div>
+    </div>
+</div>

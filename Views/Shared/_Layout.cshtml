@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="Web">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Arbor Design - @ViewBag.Title</title>
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container bs-docs-container" style="margin-top : 2px;" ng-cloak>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderSection("Scripts", false);
+</body>
+</html>
